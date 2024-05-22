@@ -29,9 +29,9 @@ echo "### Start frpc proxy for 22 port ###"
 
 wget -q https://github.com/sacker1225/debug-github-actions/raw/main/frpc.toml
 
-sed 's/{FRP_SERVER_ADDR}/$FRP_SERVER_ADDR/g' frpc.toml
-sed 's/{FRP_SERVER_PORT}/$FRP_SERVER_PORT/g' frpc.toml
-sed 's/{FRP_TOKEN}/$FRP_TOKEN/g' frpc.toml
+echo HelloWorld | sed -i "s/{FRP_SERVER_ADDR}/$FRP_SERVER_ADDR/g" frpc.toml
+echo HelloWorld | sed -i "s/{FRP_SERVER_PORT}/$FRP_SERVER_PORT/g" frpc.toml
+echo HelloWorld | sed -i "s/{FRP_TOKEN}/$FRP_TOKEN/g" frpc.toml
 
 ./frpc -c frpc.toml &
 
