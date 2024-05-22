@@ -1,0 +1,34 @@
+# This configuration file is for reference only. Please do not use this configuration directly to run the program as it may have various issues.
+
+# your proxy name will be changed to {user}.{proxy}
+user = "debug-github-actions"
+
+# A literal address or host name for IPv6 must be enclosed
+# in square brackets, as in "[::1]:80", "[ipv6-host]:http" or "[ipv6-host%zone]:80"
+# For single serverAddr field, no need square brackets, like serverAddr = "::".
+serverAddr = "{FRP_SERVER_ADDR}"
+serverPort = {FRP_SERVER_PORT}
+
+loginFailExit = true
+log.to = "./frpc.log"
+log.level = "info"
+log.maxDays = 3
+log.disablePrintColor = false
+
+auth.method = "token"
+auth.token = "{FRP_TOKEN}"
+webServer.pprofEnable = false
+transport.poolCount = 5
+transport.protocol = "tcp"
+transport.connectServerLocalIP = "0.0.0.0"
+transport.tls.enable = true
+udpPacketSize = 1500
+metadatas.var1 = "abc"
+metadatas.var2 = "123"
+
+[[proxies]]
+name = "debug_github_ssh"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 22
+remotePort = 0
