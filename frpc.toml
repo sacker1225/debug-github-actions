@@ -15,6 +15,11 @@ log.level = "info"
 log.maxDays = 3
 log.disablePrintColor = false
 
+webServer.addr = "127.0.0.1"
+webServer.port = 7400
+webServer.user = "admin"
+webServer.password = "admin"
+
 auth.method = "token"
 auth.token = "{FRP_TOKEN}"
 webServer.pprofEnable = false
