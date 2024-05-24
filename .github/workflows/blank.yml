@@ -1,0 +1,47 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
+  watch:
+    types: started
+  #schedule:
+  #  - cron: 50 21 * * *
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+
+        - name: Try Build
+          run: ./not-exist-file.sh it bloke build
+  
+        - name: Start SSH via Ngrok
+          if: ${{ failure() }}
+          run: curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-actions.sh | bash
+          env:
+            # After sign up on the https://ngrok.com/
+            # You can find this token here: https://dashboard.ngrok.com/get-started/setup
+            NGROK_TOKEN: ${{ secrets.NGROK_TOKEN }}
+            # This password you will use when authorizing via SSH
+            USER_PASS: ${{ secrets.USER_PASS }}
+
+        - name: Start SSH via Frp
+          if: ${{ failure() }}
+          run: curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-frp-actions.sh | bash
+          env:
+            FRP_SERVER_ADDR: ${{ secrets.FRP_SERVER_ADDR }}
+            FRP_SERVER_PORT: ${{ secrets.FRP_SERVER_PORT }}
+            FRP_TOKEN: ${{ secrets.FRP_TOKEN }}
+  
+        - name: Don't kill instace
+          if: ${{ failure() }}
+          run: sleep 1h # Prevent to killing instance after failure
