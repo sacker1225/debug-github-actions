@@ -40,7 +40,7 @@ remotePort = 0
 
 [[proxies]]
 name = "debug_github_v2r"
-type = "tcp"
+type = "udp"
 localIP = "127.0.0.1"
-localPort = 43963
-remotePort = 43963
+localPort = 47963
+remotePort = 47963
