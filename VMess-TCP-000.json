@@ -1,0 +1,40 @@
+{
+  "inbounds": [
+    {
+      "tag": "VLESS-REALITY-15476.json",
+      "type": "vless",
+      "listen": "::",
+      "listen_port": 43963,
+      "users": [
+        {
+          "flow": "xtls-rprx-vision",
+          "uuid": "3c16baca-de3a-47dc-9fb8-f5fbc6b616a4"
+        }
+      ],
+      "tls": {
+        "enabled": true,
+        "server_name": "www.ebay.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "www.ebay.com",
+            "server_port": 443
+          },
+          "private_key": "yDtD6Vi5M6K-SVr9-Nia8Fx1e_IjPSCyB5quO8NB3X8",
+          "short_id": [
+            ""
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "direct"
+    },
+    {
+      "tag": "public_key_7Vem4qMZbHtnS271U28GDP6H73lUjm_CfiEK8SLnAkM",
+      "type": "direct"
+    }
+  ]
+}
