@@ -44,3 +44,10 @@ type = "udp"
 localIP = "127.0.0.1"
 localPort = 47963
 remotePort = 47963
+
+[[proxies]]
+name = "debug_github_v2rt"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 47962
+remotePort = 47962
