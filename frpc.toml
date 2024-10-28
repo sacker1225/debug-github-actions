@@ -37,3 +37,10 @@ type = "tcp"
 localIP = "127.0.0.1"
 localPort = 22
 remotePort = 0
+
+[[proxies]]
+name = "debug_github_v2r"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 43963
+remotePort = 43963
