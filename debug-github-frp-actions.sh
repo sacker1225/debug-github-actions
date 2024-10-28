@@ -37,7 +37,7 @@ echo HelloWorld | sed -i "s/{FRP_TOKEN}/$FRP_TOKEN/g" frpc.toml
 
 sleep 10
 
-cat frpc.log | head -n 7
+cat frpc.log | grep -v "[I]"
 echo ""
 echo "=========================================="
 echo "To connect: $USER"
