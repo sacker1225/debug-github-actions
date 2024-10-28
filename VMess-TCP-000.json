@@ -2,7 +2,7 @@
   "inbounds": [
     {
       "tag": "VMess-QUIC-47966.json",
-      "port": 47966,
+      "port": 47963,
       "listen": "0.0.0.0",
       "protocol": "vmess",
       "settings": {
