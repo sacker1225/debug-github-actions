@@ -9,6 +9,9 @@ echo "### download v2r success ### "
 mkdir v2r/conf
 
 cp -f config.json v2r/config.json
+cp -f VMess-TCP-000.json v2r/conf/VMess-QUIC-000.json
+echo HelloWorld | sed -i "s/47963/47962/g" VMess-TCP-000.json
+echo HelloWorld | sed -i "s/quic/tcp/g" VMess-TCP-000.json
 cp -f VMess-TCP-000.json v2r/conf/VMess-TCP-000.json
 
 ./v2r/v2ray run -config ./v2r/config.json -confdir ./v2r/conf &
