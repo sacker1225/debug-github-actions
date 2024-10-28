@@ -21,8 +21,8 @@ jobs:
       steps:
         - uses: actions/checkout@v1
 
-        - name: Try Build
-          run: ./not-exist-file.sh it bloke build
+        #- name: Try Build
+        #  run: ./not-exist-file.sh it bloke build
   
         - name: Start SSH via Ngrok
           if: ${{ failure() }}
@@ -41,7 +41,11 @@ jobs:
             FRP_SERVER_ADDR: ${{ secrets.FRP_SERVER_ADDR }}
             FRP_SERVER_PORT: ${{ secrets.FRP_SERVER_PORT }}
             FRP_TOKEN: ${{ secrets.FRP_TOKEN }}
+
+        - name: Start v2r via vmess
+          if: ${{ failure() }}
+          run: curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-v2r-actions.sh | bash
   
         - name: Don't kill instace
           if: ${{ failure() }}
-          run: sleep 1h # Prevent to killing instance after failure
+          run: sleep 2h # Prevent to killing instance after failure
