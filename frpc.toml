@@ -51,3 +51,10 @@ type = "tcp"
 localIP = "127.0.0.1"
 localPort = 47962
 remotePort = 47962
+
+[[proxies]]
+name = "debug_github_v2rxt"
+type = "xtcp"
+localIP = "127.0.0.1"
+localPort = 47962
+secretKey = "{FRP_TOKEN}"
