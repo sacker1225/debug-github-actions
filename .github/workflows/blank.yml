@@ -18,12 +18,12 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   build:
-      runs-on: ubuntu-latest
+      runs-on: ubuntu-22.04
       steps:
         - uses: actions/checkout@v1
 
-        - name: Config SSH
-          run: sudo sed -i "s/KbdInteractiveAuthentication no/KbdInteractiveAuthentication yes/g" /etc/ssh/sshd_config && sudo sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config && sudo systemctl restart ssh
+        #- name: Config SSH
+        #  run: sudo sed -i "s/KbdInteractiveAuthentication no/KbdInteractiveAuthentication yes/g" /etc/ssh/sshd_config && sudo sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config && sudo systemctl restart ssh
   
         #- name: Try Build
         #  run: ./not-exist-file.sh it bloke build
@@ -49,7 +49,7 @@ jobs:
 
         - name: Start v2r via vmess
         #  if: ${{ failure() }}
-          run: cat /etc/ssh/sshd_config && curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-v2r-actions.sh | bash
+          run: curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-v2r-actions.sh | bash
   
         - name: Don't kill instace
         #  if: ${{ failure() }}
