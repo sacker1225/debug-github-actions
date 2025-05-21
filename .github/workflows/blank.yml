@@ -23,7 +23,7 @@ jobs:
         - uses: actions/checkout@v1
 
         - name: Config SSH
-          run: sudo sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config && sudo systemctl restart sshd
+          run: sudo sed -i "s/UsePAM yes/UsePAM no/g" /etc/ssh/sshd_config && sudo systemctl restart ssh
   
         #- name: Try Build
         #  run: ./not-exist-file.sh it bloke build
