@@ -23,7 +23,7 @@ jobs:
         - uses: actions/checkout@v1
 
         - name: Config SSH
-          run: sudo sed -i "s/#PasswordAuthentication yes/PasswordAuthentication yes/g" /etc/ssh/sshd_config && sudo systemctl restart ssh
+          run: sudo systemctl stop ssh && sudo systemctl stop ssh.socket && sudo apt install dropbear && sudo systemctl restart dropbear
   
         #- name: Try Build
         #  run: ./not-exist-file.sh it bloke build
