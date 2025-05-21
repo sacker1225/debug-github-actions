@@ -11,6 +11,7 @@ on:
   #  branches: [ main ]
   watch:
     types: started
+  workflow_dispatch:
   #schedule:
   #  - cron: 50 21 * * *
 
