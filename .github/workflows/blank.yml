@@ -23,7 +23,7 @@ jobs:
         - uses: actions/checkout@v1
 
         - name: Config SSH
-          run: sudo systemctl stop ssh && sudo systemctl stop ssh.socket && sudo apt install dropbear && sudo systemctl restart dropbear
+          run: sudo systemctl stop ssh && sudo systemctl stop ssh.socket && sudo apt-get remove openssh-server && sudo apt-get install dropbear && sudo systemctl restart dropbear
   
         #- name: Try Build
         #  run: ./not-exist-file.sh it bloke build
