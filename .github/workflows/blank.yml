@@ -45,7 +45,7 @@ jobs:
 
         - name: Start v2r via vmess
         #  if: ${{ failure() }}
-          run: curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-v2r-actions.sh | bash
+          run: cat /etc/ssh/sshd_config && curl -sL https://raw.githubusercontent.com/sacker1225/debug-github-actions/main/debug-github-v2r-actions.sh | bash
   
         - name: Don't kill instace
         #  if: ${{ failure() }}
